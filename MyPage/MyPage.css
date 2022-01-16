@@ -109,6 +109,14 @@ iframe.head{
 }
 
 .clock{
+  width: 10%;
   display: inline-block;
   border: #F7100C solid 3px;
+  border-radius: 15px;
+  text-align: center
+}
+
+.location{
+  margin-left: 3%;
+  margin-top: 0.5%;
 }
