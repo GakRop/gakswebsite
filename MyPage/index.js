@@ -138,6 +138,12 @@ function timeTokyoSetter(){
     let minute = D.getUTCMinutes();
     let second = D.getUTCSeconds();
 
+    if (hour > 24){
+        let hour2 = parseInt(hour);
+        hour2 = hour2 - 24;
+        hour = hour2.toString;
+    }
+    
     if (hour < 10){
         hour = "0" + hour;
     }
@@ -160,6 +166,12 @@ function timeLondonSetter(){
     let minute = D.getUTCMinutes();
     let second = D.getUTCSeconds();
 
+    if (hour > 24){
+        let hour2 = parseInt(hour);
+        hour2 = hour2 - 24;
+        hour = hour2.toString;
+    }
+    
     if (hour < 10){
         hour = "0" + hour;
     }
