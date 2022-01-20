@@ -109,7 +109,13 @@ function timeBozemanSetter(){
     let hour = D.getHours();
     let minute = D.getMinutes();
     let second = D.getSeconds();
-
+    
+    if (hour > 24){
+        let hour2 = parseInt(hour);
+        hour2 = hour2 - 24;
+        hour = hour2.toString;
+    }
+    
     if (hour < 10){
         hour = "0" + hour;
     }
