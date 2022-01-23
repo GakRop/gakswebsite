@@ -2,9 +2,7 @@ setInterval(updateClock,1000);
 
 function updateClock(){
     dateBozemanSetter();
-    timeBozemanSetter();
-    timeTokyoSetter();
-    timeLondonSetter();
+    timeSetter();
 }
 
 function dateBozemanSetter() {
@@ -104,86 +102,79 @@ function d(day){
     document.getElementById("dateBozeman").innerHTML = today;
 }
 
-function timeBozemanSetter(){
-    let D = new Date();
-    let hour = D.getHours();
-    let minute = D.getMinutes();
-    let second = D.getSeconds();
-    
-    if (hour > 24){
-        let hour2 = parseInt(hour);
-        hour2 = hour2 - 24;
-        hour = hour2.toString;
-    }
-    
-    if (hour < 10){
-        hour = "0" + hour;
-    }
+function timeSetter(){
+    let d = new Date();
 
-    if (minute < 10){
-        minute = "0" + minute;
-    }
+    class time {
 
-    if (second < 10){
-        second = "0" + second;
-    }
+        constructor(hour, minute, second) {
+            this.hour = hour;
+            this.minute = minute;
+            this.second = second;
+        }
 
-    let time = hour + ":" + minute + ":" + second;
-    document.getElementById("timeBozeman").innerHTML = time;
-}
+        hourSetter(){
+            if (this.hour < 10){
+                this.hour = 0 + hour;
+            }
 
-function timeTokyoSetter(){
-    let D = new Date();
-    let hour = D.getUTCHours() + 9;
-    let minute = D.getUTCMinutes();
-    let second = D.getUTCSeconds();
+            if (this.hour > 24){
+                this.hour = this.hour - 24;
+            }
 
-    if (hour > 24){
-        let hour2 = parseInt(hour);
-        hour2 = hour2 - 24;
-        hour = hour2.toString;
-    }
-    
-    if (hour < 10){
-        hour = "0" + hour;
+            return this.hour;
+        }
+
+        minuteSetter(){
+            if (this.minute < 10){
+                this.minute = 0 + minute;
+            }
+
+            return this.minute;
+        }
+
+        secondSetter(){
+            if (this.second < 10){
+                this.second = 0 + second;
+            }
+
+            return this.second;
+        }
     }
 
-    if (minute < 10){
-        minute = "0" + minute;
-    }
+    let hourBZN = d.getHours();
+    let minuteBZN = d.getMinutes();
+    let secondBZN = d.getSeconds();
 
-    if (second < 10){
-        second = "0" + second;
-    }
+    let hourTYO = d.getUTCHours() + 9;
+    let minuteTYO = d.getUTCMinutes();
+    let secondTYO = d.getUTCSeconds();
 
-    let time = hour + ":" + minute + ":" + second;
-    document.getElementById("timeTokyo").innerHTML = time;
-}
+    let hourLDN = d.getUTCHours();
+    let minuteLDN = d.getUTCMinutes();
+    let secondLDN = d.getUTCSeconds();
 
-function timeLondonSetter(){
-    let D = new Date();
-    let hour = D.getUTCHours();
-    let minute = D.getUTCMinutes();
-    let second = D.getUTCSeconds();
+    const BZN = new time(hourBZN, minuteBZN, secondBZN);
+    const TYO = new time(hourTYO, minuteTYO, secondTYO);
+    const LDN = new time(hourLDN, minuteLDN,secondLDN);
 
-    if (hour > 24){
-        let hour2 = parseInt(hour);
-        hour2 = hour2 - 24;
-        hour = hour2.toString;
-    }
-    
-    if (hour < 10){
-        hour = "0" + hour;
-    }
+    hourBZN = BZN.hourSetter();
+    minuteBZN = BZN.minuteSetter();
+    secondBZN = BZN.secondSetter();
 
-    if (minute < 10){
-        minute = "0" + minute;
-    }
+    hourTYO = TYO.hourSetter();
+    minuteTYO = TYO.minuteSetter();
+    secondTYO = TYO.secondSetter();
 
-    if (second < 10){
-        second = "0" + second;
-    }
+    hourLDN = LDN.hourSetter();
+    minuteLDN = LDN.minuteSetter();
+    secondLDN = LDN.secondSetter();
 
-    let time = hour + ":" + minute + ":" + second;
-    document.getElementById("timeLondon").innerHTML = time;
+    let timeBZN = hourBZN + ":" + minuteBZN + ":" + secondBZN;
+    let timeTYO = hourTYO + ":" + minuteTYO + ":" + secondTYO;
+    let timeLDN = hourLDN + ":" + minuteLDN + ":" + secondLDN;
+
+    document.getElementById("timeBozeman").innerHTML = timeBZN;
+    document.getElementById("timeTokyo").innerHTML = timeTYO;
+    document.getElementById("timeLondon").innerHTML = timeLDN;
 }
