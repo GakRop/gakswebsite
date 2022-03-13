@@ -142,9 +142,9 @@ function timeSetter(){
         }
     }
 
-    let hourBZN = d.getHours();
-    let minuteBZN = d.getMinutes();
-    let secondBZN = d.getSeconds();
+    let hourBZN = d.getUTCHours() - 7;
+    let minuteBZN = d.getUTCMinutes();
+    let secondBZN = d.getUTCSeconds();
 
     let hourTYO = d.getUTCHours() + 9;
     let minuteTYO = d.getUTCMinutes();
@@ -154,9 +154,14 @@ function timeSetter(){
     let minuteLDN = d.getUTCMinutes();
     let secondLDN = d.getUTCSeconds();
 
+    let hourIST = d.getUTCHours() + 3;
+    let minuteIST = d.getUTCMinutes();
+    let secondIST = d.getUTCSeconds();
+
     const BZN = new time(hourBZN, minuteBZN, secondBZN);
     const TYO = new time(hourTYO, minuteTYO, secondTYO);
-    const LDN = new time(hourLDN, minuteLDN,secondLDN);
+    const LDN = new time(hourLDN, minuteLDN, secondLDN);
+    const IST = new time(hourIST, minuteIST, secondIST);
 
     hourBZN = BZN.hourSetter();
     minuteBZN = BZN.minuteSetter();
@@ -170,13 +175,19 @@ function timeSetter(){
     minuteLDN = LDN.minuteSetter();
     secondLDN = LDN.secondSetter();
 
+    hourIST = IST.hourSetter();
+    minuteIST = IST.minuteSetter();
+    secondIST = IST.secondSetter();
+
     let timeBZN = hourBZN + ":" + minuteBZN + ":" + secondBZN;
     let timeTYO = hourTYO + ":" + minuteTYO + ":" + secondTYO;
     let timeLDN = hourLDN + ":" + minuteLDN + ":" + secondLDN;
+    let timeIST = hourIST + ":" + minuteIST + ":" + secondIST;
 
     document.getElementById("timeBozeman").innerHTML = timeBZN;
     document.getElementById("timeTokyo").innerHTML = timeTYO;
     document.getElementById("timeLondon").innerHTML = timeLDN;
+    document.getElementById("timeIstanbul").innerHTML = timeIST;
 }
 
 document.getElementById("navdrawer").addEventListener("click", event => {
