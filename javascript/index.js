@@ -142,7 +142,7 @@ function timeSetter(){
         }
     }
 
-    let hourBZN = d.getUTCHours() - 7;
+    let hourBZN = d.getUTCHours() - 6;
     let minuteBZN = d.getUTCMinutes();
     let secondBZN = d.getUTCSeconds();
 
