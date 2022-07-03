@@ -154,14 +154,14 @@ function timeSetter(){
     let minuteLDN = d.getUTCMinutes();
     let secondLDN = d.getUTCSeconds();
 
-    let hourIST = d.getUTCHours() + 3;
-    let minuteIST = d.getUTCMinutes();
-    let secondIST = d.getUTCSeconds();
+    let hourNYC = d.getUTCHours() - 4;
+    let minuteNYC = d.getUTCMinutes();
+    let secondNYC = d.getUTCSeconds();
 
     const BZN = new time(hourBZN, minuteBZN, secondBZN);
     const TYO = new time(hourTYO, minuteTYO, secondTYO);
     const LDN = new time(hourLDN, minuteLDN, secondLDN);
-    const IST = new time(hourIST, minuteIST, secondIST);
+    const NYC = new time(hourNYC, minuteNYC, secondNYC);
 
     hourBZN = BZN.hourSetter();
     minuteBZN = BZN.minuteSetter();
@@ -175,19 +175,19 @@ function timeSetter(){
     minuteLDN = LDN.minuteSetter();
     secondLDN = LDN.secondSetter();
 
-    hourIST = IST.hourSetter();
-    minuteIST = IST.minuteSetter();
-    secondIST = IST.secondSetter();
+    hourNYC = NYC.hourSetter();
+    minuteNYC = NYC.minuteSetter();
+    secondNYC = NYC.secondSetter();
 
     let timeBZN = hourBZN + ":" + minuteBZN + ":" + secondBZN;
     let timeTYO = hourTYO + ":" + minuteTYO + ":" + secondTYO;
     let timeLDN = hourLDN + ":" + minuteLDN + ":" + secondLDN;
-    let timeIST = hourIST + ":" + minuteIST + ":" + secondIST;
+    let timeNYC = hourNYC + ":" + minuteNYC + ":" + secondNYC;
 
     document.getElementById("timeBozeman").innerHTML = timeBZN;
     document.getElementById("timeTokyo").innerHTML = timeTYO;
     document.getElementById("timeLondon").innerHTML = timeLDN;
-    document.getElementById("timeIstanbul").innerHTML = timeIST;
+    document.getElementById("timeNewyork").innerHTML = timeNYC;
 }
 
 document.getElementById("navdrawer").addEventListener("click", event => {
