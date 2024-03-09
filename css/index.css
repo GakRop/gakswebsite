@@ -50,12 +50,12 @@ iframe{
     margin-right: 10%;
 }
 
-iframe.news{
+iframe.news {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 0px;
     margin-left: 0px;
-    height: 650px;
+    height: 650px; /* Adjusted height to cover the space */
     width: 98%;
     display: inline-block;
 }
